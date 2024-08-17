@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import WeatherBox from './component/WeatherBox';
 import WeatherSearch from './component/WeatherSearch.jsx';
-import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import { Map } from 'react-kakao-maps-sdk';
 import * as S from './App.styled.js';
 
 function App() {

@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import WeatherBox from './component/WeatherBox';
 import WeatherButton from './component/WeatherButton';
+import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import * as S from './App.styled.js';
 
 function App() {
   const [weahter, setWeather] = useState(null);
-
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
   useEffect(() => {
     getCurrentLocation();
   }, []);
@@ -13,8 +15,10 @@ function App() {
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
-      let lon = position.coords.longitude;
-      getWeatherByCurrentLocation(lat, lon);
+      let lng = position.coords.longitude;
+      setLat(lat);
+      setLng(lng);
+      getWeatherByCurrentLocation(lat, lng);
     });
   };
 
@@ -26,7 +30,10 @@ function App() {
   };
   return (
     <>
-      <WeatherBox weather={weahter} />
+      <Map center={{ lat, lng }} style={{ width: '100vw', height: '100vh' }}>
+        <WeatherBox weather={weahter} lat={lat} lng={lng} />
+      </Map>
+
       <WeatherButton />
     </>
   );

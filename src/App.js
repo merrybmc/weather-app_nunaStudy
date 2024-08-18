@@ -73,7 +73,7 @@ function App() {
   return (
     <S.Container>
       <WeatherSearch completeHandler={completeHandler} searchHistory={searchHistory} />
-      <Map center={{ lat, lng }} style={{ width: '100vw', height: '100vh' }}>
+      <Map level={7} center={{ lat, lng }} style={{ width: '100vw', height: '100vh' }}>
         <WeatherBox weather={weahter} lat={lat} lng={lng} />
       </Map>
     </S.Container>

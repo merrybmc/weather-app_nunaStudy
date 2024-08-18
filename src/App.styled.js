@@ -21,17 +21,18 @@ export const MarkerBox = styled.div`
 export const SearchContainer = styled.div`
   position: absolute;
   z-index: 2;
-  width: 30%;
+  width: 25%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  margin-top: 30px;
+  margin-left: 30px;
 
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  /* bottom: 50%; */
+  transform: translateY(-50%);
 `;
 
 export const SearchAddressbuttonGroup = styled.div`
